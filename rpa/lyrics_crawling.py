@@ -1,6 +1,4 @@
 
-
-
 def ft_get_links(file_name):
     # CASE 1: bs4 + requests -> No Contents
     #res = requests.get(url) 
@@ -39,22 +37,8 @@ def ft_get_lyrics(links):
         
     lyrics = []
     lyrics.append([])
-    
-    #res = requests.get(links[0])
-    #res.raise_for_status()
-    #soup = BeautifulSoup(res.text, "lxml")
-    #all = soup.find("div", attrs={"class":"se-section se-section-text se-l-default"})
-    #test_lyrics = all.find_all("p", attrs={"class":"se-text-paragraph se-text-paragraph-align-justify"})
-    #for test_lyric in test_lyrics:
-    #    if len(test_lyric.get_text()) == 1:
-    #        continue
-    #    lyrics[0].append(test_lyric.get_text())
-    #print(lyrics[0])
- 
-    # For Testing Purpose, To be deleted
+     
     index = 0 
-    # For Testing Purpose, To be deleted
-    
     for link in links:
         res = requests.get(link)
         res.raise_for_status()
@@ -67,10 +51,6 @@ def ft_get_lyrics(links):
             lyrics[index].append(grab_lyric.get_text())
         index += 1
         lyrics.append([])
-        
-        # For Testing Purpose, To be deleted
-        if index > 50: 
-            break
-        # For Testing Purpose, To be deleted
+        print(f'{len(lyrics)}개 가사 수집 완료')
 
     return lyrics

@@ -60,5 +60,7 @@ from bs4 import BeautifulSoup
 ## bs4 + selenium 사용 : 스크롤링에 시간이 소요, 파일로 저장해서 시간 단축 
 soup = BeautifulSoup(browser.page_source, "lxml")
 
-with open("extra/test5.html", "w", encoding="utf8") as f:
+with open("source.html", "w", encoding="utf8") as f:
     f.write(soup.prettify())
+    
+browser.close()
