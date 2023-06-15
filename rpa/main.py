@@ -12,6 +12,13 @@ warnings.filterwarnings(action='ignore')
 from lyrics_crawling import *
 links, titles = ft_get_links("source.html")
 
+## 1번부터 100번 링크 수집 -> 이미지 수집용
+#index = 0
+#link_number = len(links)
+#while index < 100: # 원하는 개수 입력
+#    index+=1
+#    print(links[link_number - index])
+    
 # 링크 들어가서 가사 수집
 lyrics = ft_get_lyrics(links)
 
@@ -19,13 +26,14 @@ lyrics = ft_get_lyrics(links)
 from docx import Document
 doc = Document()
 index = 0
-for title in titles:
-    doc.add_heading(title)
-    for lyric in lyrics[index]:
+len_link = len(links)
+while index < len_link:
+    index += 1
+    doc.add_heading(titles[len_link - index])
+    for lyric in lyrics[len_link - index]:
         doc.add_paragraph(lyric)
     doc.add_paragraph("")
-    index+=1
-doc.save('Python.docx')
+doc.save('성공회 성가.docx')
 print("파일 생성 완료")
 
 # csv 파일로 출력

@@ -50,7 +50,6 @@ def ft_get_lyrics(links):
                 continue
             lyrics[index].append(grab_lyric.get_text())
         index += 1
-        lyrics.append([])
         print(f'{len(lyrics)}개 가사 수집 완료')
-
+        lyrics.append([])
     return lyrics
